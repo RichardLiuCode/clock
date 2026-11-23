@@ -64,3 +64,9 @@ document.getElementById("showSecondsCheckbox").addEventListener("change", functi
 
   }
 });
+
+window.addEventListener("load", function () {
+  if (window.parent != window.self) {
+    document.getElementsByClassName("topBar")[0].style.display = "none";
+  }
+});
