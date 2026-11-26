@@ -13,16 +13,16 @@ function updateClock() {
       hours = hours - 12;
       amOrpm = "P.M.";
     }
-    var timeString = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0");
+    var timeString = "<span style='font-family:DigitialClock;'>"+hours.toString().padStart(2, "0") + "</span>:<span style='font-family:DigitialClock;'>" + minutes.toString().padStart(2, "0")+"</span>";
 
   } else {
-    var timeString = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
+    var timeString = `<span style='font-family:DigitialClock;'>${hours.toString().padStart(2, "0")}</span>:<span style='font-family:DigitialClock;'>${minutes.toString().padStart(2, "0")}</span>`;
     if (!document.getElementById("twelveAndTwentyFourHoursCheckbox").checked) {
       document.getElementById("twelveAndTwentyFourHoursCheckbox").checked = true;
     }
   }
   if (showSeconds == "true") {
-    timeString += `:${seconds.toString().padStart(2, "0")}`;
+    timeString += `:<span style='font-family:DigitialClock;'>${seconds.toString().padStart(2, "0")}</span>`;
     if (!document.getElementById("showSecondsCheckbox").checked) {
       document.getElementById("showSecondsCheckbox").checked = true;
     }
@@ -31,7 +31,7 @@ function updateClock() {
     timeString += ` ${amOrpm}`;
   }
   document.title = timeString;
-  document.getElementById("clock").textContent = timeString;
+  document.getElementById("clock").innerHTML = timeString;
 }
 
 setInterval(function () {
